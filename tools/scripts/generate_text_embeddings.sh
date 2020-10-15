@@ -1,6 +1,7 @@
 #!/bin/bash
 
-set -e
+set -e # 每个脚本都应该在文件开头加上set -e,这句语句告诉bash如果任何语句的执行结果不是true则应该退出。
+# 这样的好处是防止错误像滚雪球般变大导致一个致命的错误
 
 # #
 # # Setup
@@ -26,9 +27,10 @@ echo "Log path: $log_path"
 echo "--- TEST SCRIPT ---"
 
 # for split in "train" "val" "test"; do  # All splits
-for split in "test"; do  # Test split only
+# for split in "test"; do  # Test split only
+for split in "train"; do # Test train only
     cur_log_path="$log_path/$split"
-    echo $cur_log_path
+    echo "Current log path: $cur_log_path"
     python main.py --model $1 \
         --text_encoder \
         --test \

@@ -10,7 +10,7 @@
 # 500. If the directory contains 1000, 2500, 5000, this script will choose model 5000.
 
 set -e
-export TOOLKIT_PATH=/home/kchen92/Dev/sstk
+export TOOLKIT_PATH=/local-scratch/yuer/project/sstk
 
 # Make sure there are two arguments
 if [ "$#" -ne 2 ]; then

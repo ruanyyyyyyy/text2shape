@@ -3,6 +3,7 @@ import numpy as np
 import os
 import pprint
 import yaml
+import pdb
 
 # HACK: Get logger to print to stdout
 import sys
@@ -436,6 +437,7 @@ def main():
 
     print('Called with args:')
     print(args)
+    # pdb.set_trace()
 
     if args.save_outputs is True and args.test is False:
         raise ValueError('Can only save outputs when testing, not training.')
@@ -528,6 +530,7 @@ def main():
                             save_outputs=args.save_outputs)
     finally:
         # Clean up the processes and queues
+        is_training= True # modify by yuer
         if is_training:
             kill_processes(train_queue, train_processes)
             if args.validation:

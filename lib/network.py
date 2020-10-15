@@ -3,7 +3,8 @@ from lib.optimizers import get_optimizer
 from lib.utils import get_trainable_variables_by_scope, print_tensor_shapes
 
 import tensorflow as tf
-import tensorflow.contrib.slim as slim
+#import tensorflow.contrib.slim as slim
+import tf_slim as slim
 
 
 def build_default_train_op(global_step, loss, trainable_vars):

@@ -69,7 +69,7 @@ def read_nrrd(nrrd_filename):
     return voxel_tensor
 
 
-def test_nrrd_rw():
+def test_nrrd_rw(): #NOTE: read nrrd file to voxels
     """Function for testing whether the read/write functions work correctly.
     """
     from lib.config import cfg
