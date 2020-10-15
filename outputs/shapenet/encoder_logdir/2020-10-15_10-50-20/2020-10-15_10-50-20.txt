@@ -1,0 +1,138 @@
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+Called with args:
+Namespace(all_tuples=False, augment_max=None, batch_size=100, cfg_files=None, ckpt_path=None, classifier=False, critic_lr_multiplier=None, critic_optimizer=None, dataset='shapenet', decay_steps=2500, dont_save_voxels=False, end2end=False, fake_match_loss_coeff=None, fake_mismatch_loss_coeff=None, gp_weight=None, improved_wgan=False, intense_training_freq=None, is_debug=False, lba_ckpt_path=None, lba_mode='MM', lba_only=False, lba_test_mode='shape', lba_unnormalize=True, learning_rate=0.0002, log_path='./outputs/shapenet/encoder_logdir/2020-10-15_10-50-20', match_loss_coeff=None, metric_learning_only=False, model='LBA1', n_minibatch_test=None, noise_dist=None, noise_size=None, non_inverted_loss=False, num_critic_steps=None, num_epochs=100, optimizer=None, queue_capacity=None, randomize=False, reed_classifier=False, save_outputs=False, set_cfgs=None, shape2shape_weight=None, shapenet_ct_classifier=False, split=None, summary_freq=None, synth_embedding=False, test=False, test_npy=False, text2text_weight=None, text_encoder=True, tiny_dataset=False, uniform_max=None, val_ckpt_path=None, validation=True, visit_weight=0.25)
+> /local-scratch/yuer/projects/text2shape/main.py(442)main()
+-> if args.save_outputs is True and args.test is False:
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(444)main()
+-> if args.validation:
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(445)main()
+-> assert not args.test
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(446)main()
+-> if args.test:
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(449)main()
+-> modify_args(args)
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(451)main()
+-> print('----------------- CONFIG -------------------')
+(Pdb) ----------------- CONFIG -------------------
+> /local-scratch/yuer/projects/text2shape/main.py(452)main()
+-> pprint.pprint(cfg)
+(Pdb) {'CONST': {'BATCH_SIZE': 100,
+           'DATASET': 'shapenet',
+           'IMPROVED_WGAN': False,
+           'NUM_WORKERS': 3,
+           'N_MINIBATCH_TEST': None,
+           'N_VOX': 32,
+           'PRINT_FREQ': 20,
+           'QUEUE_CAPACITY': 20,
+           'REED_CLASSIFIER': False,
+           'RNG_SEED': 123,
+           'SHAPENET_CT_CLASSIFIER': False,
+           'SYNTH_EMBEDDING': False,
+           'TEST_ALL_TUPLES': False},
+ 'DIR': {'CKPT_PATH': None,
+         'DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/',
+         'JSON_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/shapenet.json',
+         'LOG_PATH': './outputs/shapenet/encoder_logdir/2020-10-15_10-50-20',
+         'PRIMITIVES_ALL_SPLITS_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/primitives/combined_splits.p',
+         'PRIMITIVES_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/primitives',
+         'PRIMITIVES_JSON_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/primitives/primitives.json',
+         'PRIMITIVES_METRIC_EMBEDDINGS_TEST': None,
+         'PRIMITIVES_METRIC_EMBEDDINGS_TRAIN': None,
+         'PRIMITIVES_METRIC_EMBEDDINGS_VAL': None,
+         'PRIMITIVES_RGB_VOXEL_PATH': '/local-scratch/yuer/data/text2shape/primitives/%s/%s',
+         'PRIMITIVES_TEST_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/primitives/processed_captions_test.p',
+         'PRIMITIVES_TRAIN_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/primitives/processed_captions_train.p',
+         'PRIMITIVES_VAL_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/primitives/processed_captions_val.p',
+         'PROBLEMATIC_NRRD_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/problematic_nrrds_shapenet_unverified_256_filtered_div_with_err_textures.p',
+         'RAW_CAPTION_CSV': '/local-scratch/yuer/data/text2shape/shapenet/captions.tablechair.csv',
+         'RGB_VOXEL_PATH': '/local-scratch/yuer/data/text2shape/shapenet/nrrd_256_filter_div_32_solid/%s/%s.nrrd',
+         'SHAPENET_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet',
+         'SHAPENET_METRIC_EMBEDDINGS_TEST': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/shapenet-embeddings/text_embeddings_test.p',
+         'SHAPENET_METRIC_EMBEDDINGS_TRAIN': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/shapenet-embeddings/text_embeddings_train.p',
+         'SHAPENET_METRIC_EMBEDDINGS_VAL': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/shapenet-embeddings/text_embeddings_val.p',
+         'TEST_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/processed_captions_test.p',
+         'TOOLKIT_PATH': '/local-scratch/yuer/project/sstk',
+         'TRAIN_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/processed_captions_train.p',
+         'VAL_CKPT_PATH': None,
+         'VAL_DATA_PATH': '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/processed_captions_val.p'},
+ 'GAN': {'COLOR_EVALUATOR': 'hsv',
+         'COLOR_METRIC': 'EMD',
+         'D_ACCURACY_THRESHOLD': 0.8,
+         'D_LEARNING_RATE_MULTIPLIER': 1.0,
+         'D_OPTIMIZER': 'adam',
+         'INTERP': False,
+         'NOISE_DIST': 'uniform',
+         'NOISE_MEAN': 0.0,
+         'NOISE_SIZE': 32,
+         'NOISE_STDDEV': 1.0,
+         'NOISE_UNIF_ABS_MAX': 1.0},
+ 'LBA': {'CLASSIFICATION': False,
+         'CLASSIFICATION_MULTIPLIER': 10.0,
+         'COSINE_DIST': True,
+         'DIST_TYPE': 'standard',
+         'INVERTED_LOSS': True,
+         'MAX_NORM': 10.0,
+         'METRIC_MULTIPLIER': 1.0,
+         'MODEL_TYPE': 'MM',
+         'NORMALIZE': False,
+         'NO_LBA': False,
+         'N_CAPTIONS_PER_MODEL': 2,
+         'N_PRIMITIVE_SHAPES_PER_CATEGORY': 2,
+         'PROJECT_FREQ': 10,
+         'SHAPE_NORM_MULTIPLIER': 2.0,
+         'TEST_MODE': 'shape',
+         'TEXT_NORM_MULTIPLIER': 2.0,
+         'VISIT_WEIGHT': 0.25,
+         'WALKER_WEIGHT': 1.0},
+ 'NETWORK': 'LBA1',
+ 'TRAIN': {'AUGMENT_MAX': 0,
+           'CKPT_FREQ': 2500,
+           'DECAY_RATE': 0.95,
+           'DECAY_STEPS': 2500,
+           'LEARNING_RATE': 0.0002,
+           'NUM_EPOCHS': 100,
+           'OPTIMIZER': 'adam',
+           'STAIRCASE': True,
+           'SUMMARY_FREQ': 250,
+           'VALIDATION_FREQ': 2500},
+ 'VAL_NETWORK': 'Classifier128',
+ 'WGAN': {'FAKE_MATCH_LOSS_COEFF': 1.0,
+          'FAKE_MISMATCH_LOSS_COEFF': 1.0,
+          'GP_COEFF': 10.0,
+          'INTENSE_TRAINING_FREQ': 500,
+          'INTENSE_TRAINING_INTENSITY': 100,
+          'INTENSE_TRAINING_STEPS': 25,
+          'MATCH_LOSS_COEFF': 2.0,
+          'NUM_CRITIC_STEPS': 5,
+          'SHAPE2SHAPE_WEIGHT': 10.0,
+          'TEXT2TEXT_WEIGHT': 10.0}}
+> /local-scratch/yuer/projects/text2shape/main.py(455)main()
+-> os.makedirs(cfg.DIR.LOG_PATH, exist_ok=True)
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(456)main()
+-> with open(os.path.join(cfg.DIR.LOG_PATH, 'run_cfg.yaml'), 'w') as out_yaml:
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(457)main()
+-> yaml.dump(cfg, out_yaml, default_flow_style=False)
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(460)main()
+-> tf.logging.set_verbosity(tf.logging.INFO)
+(Pdb) WARNING:tensorflow:From main.py:460: The name tf.logging.set_verbosity is deprecated. Please use tf.compat.v1.logging.set_verbosity instead.
+
+WARNING:tensorflow:From main.py:460: The name tf.logging.INFO is deprecated. Please use tf.compat.v1.logging.INFO instead.
+
+> /local-scratch/yuer/projects/text2shape/main.py(462)main()
+-> try:
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(463)main()
+-> with tf.Graph().as_default() as g:  # create graph
+(Pdb) > /local-scratch/yuer/projects/text2shape/main.py(465)main()
+-> inputs_dict, val_inputs_dict = get_inputs_dict(args)
+(Pdb) FileNotFoundError: [Errno 2] No such file or directory: '/local-scratch/yuer/data/text2shape/text2shape-data/shapenet/processed_captions_train.p'
+> /local-scratch/yuer/projects/text2shape/main.py(465)main()
+-> inputs_dict, val_inputs_dict = get_inputs_dict(args)
+(Pdb) Namespace(all_tuples=False, augment_max=None, batch_size=100, cfg_files=None, ckpt_path=None, classifier=False, critic_lr_multiplier=None, critic_optimizer=None, dataset='shapenet', decay_steps=2500, dont_save_voxels=False, end2end=False, fake_match_loss_coeff=None, fake_mismatch_loss_coeff=None, gp_weight=None, improved_wgan=False, intense_training_freq=None, is_debug=False, lba_ckpt_path=None, lba_mode='MM', lba_only=False, lba_test_mode='shape', lba_unnormalize=True, learning_rate=0.0002, log_path='./outputs/shapenet/encoder_logdir/2020-10-15_10-50-20', match_loss_coeff=None, metric_learning_only=False, model='LBA1', n_minibatch_test=None, noise_dist=None, noise_size=None, non_inverted_loss=False, num_critic_steps=None, num_epochs=100, optimizer=None, queue_capacity=None, randomize=False, reed_classifier=False, save_outputs=False, set_cfgs=None, shape2shape_weight=None, shapenet_ct_classifier=False, split=None, summary_freq=None, synth_embedding=False, test=False, test_npy=False, text2text_weight=None, text_encoder=True, tiny_dataset=False, uniform_max=None, val_ckpt_path=None, validation=True, visit_weight=0.25)
+(Pdb) 

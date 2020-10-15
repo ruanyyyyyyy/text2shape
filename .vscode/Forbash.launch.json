@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "bashdb",
+            "request": "launch",
+            "name": "Bash-Debug (simplest configuration)",
+            "program": "${file}",
+            "args": ["LBA1", "outputs/shapenet/encoder_logdir/model.ckpt-50", "--dataset shapenet --visit_weight 0.25 --lba_mode MM --num_epochs 10000 --lba_test_mode text --lba_unnormalize"]
+            
+        }
+    ]
+}
