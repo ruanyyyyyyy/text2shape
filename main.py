@@ -351,7 +351,7 @@ def get_inputs_dict(args):
     """
     if cfg.CONST.DATASET == 'shapenet':
         if (args.text_encoder is True) or (args.end2end is True) or (args.classifier is True):
-            inputs_dict = utils.open_pickle(cfg.DIR.TRAIN_DATA_PATH)
+            inputs_dict = utils.open_pickle(cfg.DIR.TRAIN_DATA_PATH) # 
             val_inputs_dict = utils.open_pickle(cfg.DIR.VAL_DATA_PATH)
             test_inputs_dict = utils.open_pickle(cfg.DIR.TEST_DATA_PATH)
         else:  # Learned embeddings
